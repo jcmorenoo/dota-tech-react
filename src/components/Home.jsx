@@ -36,6 +36,7 @@ class Home extends Component {
         if (Object.keys(this.state.heroes).length <= 0 || this.state.heroes_images.length <= 0) {
             this.fetchHeroes();
         }
+        document.title = "dota-tech";
     }
 
     render() {
