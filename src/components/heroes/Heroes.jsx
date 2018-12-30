@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import HeroesContainer from './HeroesContainer';
 
 class Heroes extends Component {
-
-    getHeroImages = heroId => {
-        return this.props.heroesImages.filter(
-            heroImage => heroImage.id === heroId
-        )[0];
-    };
-
     render() {
         const heroes = [];
         Object.keys(this.props.heroes).forEach(key => {
@@ -41,10 +34,10 @@ class Heroes extends Component {
                 className={[('ui', 'segment', 'tab')].join(' ')}
                 id="heroesContainer"
             >
-                <div>Heroes</div>
+                <h3 className="tabHeader">Heroes</h3>
                 <table id="heroesTable" align="center">
                     <thead>
-                        <tr>
+                        <tr className="heroAttrHeader">
                             <th>Str</th>
                             <th>Agi</th>
                             <th>Int</th>
@@ -55,11 +48,7 @@ class Heroes extends Component {
                             {firstRow.map((container, index) => {
                                 return (
                                     <td valign="top" key={index}>
-                                        <HeroesContainer
-                                            heroes={container}
-                                            getHeroImages={this.getHeroImages}
-                                            
-                                        />
+                                        <HeroesContainer heroes={container} />
                                     </td>
                                 );
                             })}
@@ -68,11 +57,7 @@ class Heroes extends Component {
                             {secondRow.map((container, index) => {
                                 return (
                                     <td valign="top" key={index}>
-                                        <HeroesContainer
-                                            heroes={container}
-                                            getHeroImages={this.getHeroImages}
-                                            
-                                        />
+                                        <HeroesContainer heroes={container} />
                                     </td>
                                 );
                             })}

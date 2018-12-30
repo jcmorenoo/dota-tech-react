@@ -15,7 +15,7 @@ class HeroesContainer extends Component {
             }
             heroRow.push(hero);
         });
-        if(heroRow.length > 0) {
+        if (heroRow.length > 0) {
             heroRows.push(heroRow);
         }
         return heroRows;
@@ -28,7 +28,7 @@ class HeroesContainer extends Component {
             <table>
                 <tbody>
                     {heroRows.map((heroRow, index) => (
-                        <HeroesContainerRow key={index} heroes={heroRow} getHeroImages={this.props.getHeroImages}/>
+                        <HeroesContainerRow key={index} heroes={heroRow} />
                     ))}
                 </tbody>
             </table>
