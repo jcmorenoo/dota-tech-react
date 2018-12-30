@@ -7,8 +7,7 @@ class Home extends Component {
         super(props);
         this.state = {
             activeTab: 'heroes',
-            heroes: {},
-            heroes_images: []
+            heroes: {}
         };
     }
     handleSelect = tab => {
@@ -17,26 +16,20 @@ class Home extends Component {
     };
 
     fetchHeroes = () => {
-        fetch('https://heroes-api-dota2.herokuapp.com/api/heroes/')
+        // fetch('https://heroes-api-dota2.herokuapp.com/api/heroes/')
+        fetch('https://api.stratz.com/api/v1/Hero')
             .then(response => response.json())
             .then(payload => {
                 this.setState({ heroes: payload });
             })
             .catch(response => console.log('Error: ' + response));
-
-        fetch('https://heroes-api-dota2.herokuapp.com/api/heroes/heroes_images')
-            .then(response => response.json())
-            .then(payload => {
-                this.setState({ heroes_images: payload.heroes_images });
-            })
-            .catch(response => console.log('Error: ' + response));
     };
 
     componentDidMount() {
-        if (Object.keys(this.state.heroes).length <= 0 || this.state.heroes_images.length <= 0) {
+        if (Object.keys(this.state.heroes).length <= 0) {
             this.fetchHeroes();
         }
-        document.title = "dota-tech";
+        document.title = 'dota-tech';
     }
 
     render() {
@@ -49,7 +42,7 @@ class Home extends Component {
                 {this.state.activeTab === 'heroes' ? (
                     <Heroes
                         heroes={this.state.heroes}
-                        heroesImages={this.state.heroes_images}
+                        // heroesImages={this.state.heroes_images}
                     />
                 ) : null}
             </div>

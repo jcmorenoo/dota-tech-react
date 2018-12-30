@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from '../styles/styles.css';
 
 export default class NavBar extends Component {
     handleClick = tab => {
@@ -11,8 +12,8 @@ export default class NavBar extends Component {
                 <a
                     className={[
                         this.props.activeTab === 'heroes' ? 'active' : '',
-                        'item'
-                    ].join(' ')}
+                        'item', 'navItem'
+                    ].join(' ').trim()}
                     onClick={() => this.handleClick('heroes')}
                 >
                     Heroes
@@ -20,8 +21,8 @@ export default class NavBar extends Component {
                 <a
                     className={[
                         this.props.activeTab === 'items' ? 'active' : '',
-                        'item'
-                    ].join(' ')}
+                        'item', 'navItem'
+                    ].join(' ').trim()}
                     onClick={() => this.handleClick('items')}
                 >
                     Items
@@ -29,8 +30,8 @@ export default class NavBar extends Component {
                 <a
                     className={[
                         this.props.activeTab === 'resources' ? 'active' : '',
-                        'item'
-                    ].join(' ')}
+                        'item', 'navItem'
+                    ].join(' ').trim()}
                     onClick={() => this.handleClick('resources')}
                 >
                     Resources
@@ -38,8 +39,8 @@ export default class NavBar extends Component {
                 <a
                     className={[
                         this.props.activeTab === 'steam' ? 'active' : '',
-                        'item'
-                    ].join(' ')}
+                        'item', 'navItem'
+                    ].join(' ').trim()}
                     onClick={() => this.handleClick('steam')}
                 >
                     Steam
